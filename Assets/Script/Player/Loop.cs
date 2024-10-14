@@ -31,7 +31,7 @@ public class Loop : MonoBehaviour
             loop.SetActive(false);
             DesLoop();
             CutRope();
-            player.GetComponent<PlayerMove>().isRopeing = false;
+            player.GetComponent<PlayerMove>().IsRopeing = false;
         }
     }
 
@@ -43,6 +43,7 @@ public class Loop : MonoBehaviour
         loop.transform.rotation = transform.rotation;
 
         loop.transform.localPosition += Vector3.forward;
+
         loop.transform.SetParent(null);
     }
 

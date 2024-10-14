@@ -19,15 +19,22 @@ public class LoopMove : MonoBehaviour
     [SerializeField]
     float springStrength = 10f;
     [SerializeField]
-    GameObject player;
+    float rushP;
+    [SerializeField]
+    int recoverySwingGauge;
 
+    [SerializeField]
+    GameObject player;
+    [SerializeField]
+    Loop rope;
 
     SpringJoint joint;
+    RopeSwing playerSwing;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerSwing = player.GetComponent<RopeSwing>();
     }
 
     // Update is called once per frame
@@ -35,16 +42,14 @@ public class LoopMove : MonoBehaviour
     {
         float temp = Vector3.Distance(transform.position, player.transform.position);
 
-        if (!player.GetComponent<PlayerMove>().isRopeing)
+        if (!player.GetComponent<PlayerMove>().IsRopeing)
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && player.GetComponent<PlayerMove>().isRopeing)
+        if (Input.GetKeyDown(KeyCode.Space) && player.GetComponent<PlayerMove>().IsRopeing)
         {
-            joint.spring = 50f;
-            joint.damper = 0.1f;
-            joint.minDistance = 0.1f;
+            StartCoroutine(Rush());
         }
 
         //if (player.GetComponent<PlayerMove>().isRopeing && temp < joint.minDistance)
@@ -52,7 +57,7 @@ public class LoopMove : MonoBehaviour
         //    joint.minDistance = temp;
         //}
 
-        if (temp > ropeMaxDistance && !player.GetComponent<PlayerMove>().isRopeing)
+        if (temp > ropeMaxDistance && !player.GetComponent<PlayerMove>().IsRopeing)
         {
             this.gameObject.SetActive(false);
         }
@@ -62,10 +67,24 @@ public class LoopMove : MonoBehaviour
     {
         if (collision.gameObject.tag != "Player")
         {
-            player.GetComponent<PlayerMove>().isRopeing = true;
+            player.GetComponent<PlayerMove>().IsRopeing = true;
             Hold();
         }
     }
+
+    IEnumerator Rush()
+    {
+        joint.spring = rushP;
+        joint.damper = 0.1f;
+        joint.minDistance = 0.1f;
+
+        yield return new WaitUntil(() => player.GetComponent<Rigidbody>().velocity.magnitude > player.GetComponent<PlayerMove>().AirMaxSpeed);
+
+        rope.CutRope();
+
+        yield break;
+    }
+
     void Hold()
     {
         //player.GetComponent<PlayerMove>().StartRope();
@@ -74,7 +93,9 @@ public class LoopMove : MonoBehaviour
         {
             return;
         }
-        
+
+        StartCoroutine(SwingGaugeRecovery());
+
         joint = player.AddComponent<SpringJoint>();
 
         float dis = Mathf.Clamp(Vector3.Distance(transform.position, player.transform.position), swingMinDistance, swingMaxDistance);
@@ -97,5 +118,18 @@ public class LoopMove : MonoBehaviour
         joint.breakTorque = 10000000;
 
         //joint.minDistance = Vector3.Distance(transform.position, player.transform.position);
+    }
+
+    IEnumerator SwingGaugeRecovery()
+    {
+        while (gameObject.activeSelf)
+        {
+            yield return new WaitForSeconds(1);
+
+            playerSwing.SwingGauge += recoverySwingGauge;
+            playerSwing.GaugeBar();
+        }
+
+        yield break;
     }
 }

@@ -1,13 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RopeSwing : MonoBehaviour
 {
-    GameObject player;
-    SpringJoint joint;
+    [SerializeField]
+    int swingGaugeConsumption;
+
     [SerializeField]
     Loop loop;
+    [SerializeField]
+    Slider slider;
+
+    GameObject player;
+    SpringJoint joint;
+
+    int swingGauge;
+    public int SwingGauge
+    {
+        set 
+        { 
+            swingGauge = Mathf.Clamp(value, 0, 100); 
+        }
+
+        get
+        {
+            return swingGauge;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -18,21 +39,27 @@ public class RopeSwing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && !Input.GetMouseButton(0) && !player.GetComponent<PlayerMove>().isRopeing)
+        if (SwingGauge >= swingGaugeConsumption)
         {
-            Swing();
-            player.GetComponent<PlayerMove>().isRopeing = true;
+            if (Input.GetMouseButtonDown(1) && !Input.GetMouseButton(0) && !player.GetComponent<PlayerMove>().IsRopeing)
+            {
+                Swing();
+                player.GetComponent<PlayerMove>().IsRopeing = true;
+            }
         }
         if (Input.GetMouseButtonUp(1) && !Input.GetMouseButton(0))
         {
             loop.CutRope();
-            player.GetComponent<PlayerMove>().isRopeing = false;
+            player.GetComponent<PlayerMove>().IsRopeing = false;
         }
     }
 
     public void Swing()
     {
         //player.GetComponent<PlayerMove>().StartRope();
+
+        SwingGauge -= swingGaugeConsumption;
+        GaugeBar();
 
         joint = player.AddComponent<SpringJoint>();
 
@@ -59,5 +86,10 @@ public class RopeSwing : MonoBehaviour
         joint.breakTorque = 10000000;
 
         Destroy(temp.gameObject);
+    }
+
+    public void GaugeBar()
+    {
+        slider.value = SwingGauge;
     }
 }

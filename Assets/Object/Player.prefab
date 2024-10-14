@@ -72,7 +72,11 @@ MonoBehaviour:
   ropeMaxDistance: 0
   swingMinDistance: 0
   swingMaxDistance: 0
+  ropeMagnification: 0
+  springStrength: 10
+  rushP: 40
   player: {fileID: 6642934490590313149}
+  rope: {fileID: 1919456217514277073}
 --- !u!54 &7523559502259300635
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -198,8 +202,8 @@ Rigidbody:
   m_GameObject: {fileID: 6642934490590313149}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0.05
-  m_AngularDrag: 0.05
+  m_Drag: 0
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -233,7 +237,7 @@ MonoBehaviour:
   jumpP: 10000
   runMaxSpeed: 20
   graundMexSpeed: 10
-  airMaxSpeed: 60
+  airMaxSpeed: 40
   ropeP: 0.15
   isRopeing: 0
 --- !u!136 &4977336287124273466
@@ -416,11 +420,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e621daea52f45f94286872ca791113fc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.156
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e621daea52f45f94286872ca791113fc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.015
+      value: 2.009
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e621daea52f45f94286872ca791113fc, type: 3}
       propertyPath: m_LocalPosition.z

@@ -24,6 +24,12 @@ public class PlayerMove : MonoBehaviour
 
     bool isGraund = false;
     public bool isRopeing = false;
+    public bool IsRopeing
+    {
+        set => isRopeing = value;
+        get => isRopeing;
+    }
+    public float AirMaxSpeed => airMaxSpeed;
     float maxSpeed;
 
     private void Awake()
@@ -71,7 +77,10 @@ public class PlayerMove : MonoBehaviour
         if (isGraund && !isRopeing)
         { 
             rb.AddForce(0, Input.GetAxis("Jump") * jumpP * Time.deltaTime, 0);
-            rb.AddForce(-rb.velocity.normalized * 1500 * Time.deltaTime);
+            if (rb.velocity.magnitude > graundMexSpeed / 3)
+            {
+                rb.AddForce(-rb.velocity.normalized * 1500 * Time.deltaTime);
+            }
         }
 
         if (rb.velocity.magnitude > maxSpeed && isGraund)
