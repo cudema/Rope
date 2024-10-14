@@ -1042,6 +1042,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2745590164679253858, guid: daa4f565052cd8e4689f2db497875493, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413502847845189207, guid: daa4f565052cd8e4689f2db497875493, type: 3}
+      propertyPath: rushP
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 3413502847845189207, guid: daa4f565052cd8e4689f2db497875493, type: 3}
       propertyPath: ropeMaxDistance
       value: 100
@@ -1100,6 +1108,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8001854075125697229, guid: daa4f565052cd8e4689f2db497875493, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322632840527509594, guid: daa4f565052cd8e4689f2db497875493, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 8322632840527509594, guid: daa4f565052cd8e4689f2db497875493, type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322632840527509594, guid: daa4f565052cd8e4689f2db497875493, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322632840527509594, guid: daa4f565052cd8e4689f2db497875493, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322632840527509594, guid: daa4f565052cd8e4689f2db497875493, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322632840527509594, guid: daa4f565052cd8e4689f2db497875493, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322632840527509594, guid: daa4f565052cd8e4689f2db497875493, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322632840527509594, guid: daa4f565052cd8e4689f2db497875493, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322632840527509594, guid: daa4f565052cd8e4689f2db497875493, type: 3}
+      propertyPath: m_Parameters.colorGradient.m_ColorSpace
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -45201,6 +45245,10 @@ PrefabInstance:
     - target: {fileID: 470324418247251516, guid: b47b31f11a2f04aa8a610f4c61cd74c1, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470838040485649577, guid: b47b31f11a2f04aa8a610f4c61cd74c1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 470943022759315478, guid: b47b31f11a2f04aa8a610f4c61cd74c1, type: 3}
       propertyPath: m_IsActive

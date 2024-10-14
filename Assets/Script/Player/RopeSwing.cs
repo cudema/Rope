@@ -12,9 +12,12 @@ public class RopeSwing : MonoBehaviour
     Loop loop;
     [SerializeField]
     Slider slider;
+    [SerializeField]
+    Vector3 swingVector;
 
     GameObject player;
     SpringJoint joint;
+    LineRenderer lineRenderer;
 
     int swingGauge;
     public int SwingGauge
@@ -50,7 +53,13 @@ public class RopeSwing : MonoBehaviour
         if (Input.GetMouseButtonUp(1) && !Input.GetMouseButton(0))
         {
             loop.CutRope();
+            Destroy(lineRenderer);
             player.GetComponent<PlayerMove>().IsRopeing = false;
+        }
+
+        if (lineRenderer != null)
+        {
+            lineRenderer.SetPosition(1, transform.position);
         }
     }
 
@@ -62,11 +71,13 @@ public class RopeSwing : MonoBehaviour
         GaugeBar();
 
         joint = player.AddComponent<SpringJoint>();
+        lineRenderer = player.AddComponent <LineRenderer>();
+        lineRenderer.SetPosition(0, transform.localPosition + transform.TransformDirection(swingVector));
 
         GameObject temp = new GameObject();
         temp.transform.rotation = transform.rotation;
         temp.transform.position = transform.position;
-        temp.transform.localPosition += transform.TransformDirection(new Vector3(0, 10f, 30f));
+        temp.transform.localPosition += transform.TransformDirection(swingVector);
 
         joint.autoConfigureConnectedAnchor = false;
         joint.connectedAnchor = temp.transform.position;

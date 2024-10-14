@@ -61,6 +61,7 @@ public class LoopMove : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -78,7 +79,9 @@ public class LoopMove : MonoBehaviour
         joint.damper = 0.1f;
         joint.minDistance = 0.1f;
 
-        yield return new WaitUntil(() => player.GetComponent<Rigidbody>().velocity.magnitude > player.GetComponent<PlayerMove>().AirMaxSpeed);
+        yield return null;
+
+        yield return new WaitUntil(() => player.GetComponent<Rigidbody>().velocity.magnitude >= player.GetComponent<PlayerMove>().AirMaxSpeed * 0.7f);
 
         rope.CutRope();
 
