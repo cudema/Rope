@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     float reloadingTime;
 
+    [SerializeField]
+    Animator animator;
+
     public float Range => range;
 
     bool playerInRange = false;
@@ -28,7 +31,7 @@ public class Enemy : MonoBehaviour
     {
         bullet = transform.GetChild(0).gameObject;
         bullet.SetActive(false);
-        bullet.transform.position = transform.position;
+        bullet.transform.position = transform.position + Vector3.up;
 
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.enabled = false;
@@ -44,6 +47,10 @@ public class Enemy : MonoBehaviour
         if (!playerInRange)
         {
             player = Physics.OverlapSphere(transform.position, range, layer);
+        }
+        else
+        {
+            transform.LookAt(player[0].transform.position);
         }
         if (player.Length > 0 && !playerInRange)
         {
@@ -84,6 +91,7 @@ public class Enemy : MonoBehaviour
         lineRenderer.enabled = false;
         bullet.SetActive(true);
         soundManager.SoundPlay("ShootGun");
+        animator.SetTrigger("Shoot");
 
         yield return new WaitForSeconds(0.2f);
 
