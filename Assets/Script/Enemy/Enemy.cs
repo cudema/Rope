@@ -53,6 +53,11 @@ public class Enemy : MonoBehaviour
 
     void LookOtPlayer()
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
+
         playerInRange = true;
         lineRenderer.enabled = true;
         lineRenderer.positionCount = 2;
