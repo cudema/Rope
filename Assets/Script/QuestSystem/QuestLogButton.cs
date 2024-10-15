@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
 
-public class QuestLogButton : MonoBehaviour, ISelectHandler
+public class QuestLogButton : MonoBehaviour, IPointerClickHandler
 {
     public Button button { get; private set; }
     private TextMeshProUGUI buttonText;
@@ -22,8 +22,13 @@ public class QuestLogButton : MonoBehaviour, ISelectHandler
         this.onSelectAction = selectAction;
     }
 
-    public void OnSelect(BaseEventData eventData)
+    //public void OnSelect(BaseEventData eventData)
+    //{
+    //    onSelectAction();
+    //}
+
+    public void OnPointerClick(PointerEventData eventData)
     {
-        onSelectAction();
+        onSelectAction?.Invoke();  // 버튼 클릭 시 액션 호출
     }
 }

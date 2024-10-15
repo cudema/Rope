@@ -16,5 +16,11 @@ public class InputManager : MonoBehaviour
         {
             GameEventsManager.instance.inputEvents.QuestLogTogglePressed();
         }
+
+        // 인벤토리키(I) 감지
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            GameEventsManager.instance.inputEvents.InventoryPressed();
+        }
     }
 }

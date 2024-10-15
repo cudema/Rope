@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Quest 
+public class Quest
 {
     //퀘스트 정적 정보
     public QuestInfo info;
@@ -10,6 +10,7 @@ public class Quest
     public QuestState state;
     private int currentQuestStepIndex;
     private QuestStepState[] questStepStates;
+
 
     //퀘스트 생성자
     public Quest(QuestInfo questInfo)
@@ -69,7 +70,7 @@ public class Quest
     private GameObject GetCurrentQuestStepPrefab()
     {
         GameObject questStepPrefab = null;
-        if(CurrentStepExists())
+        if (CurrentStepExists())
         {
             questStepPrefab = info.questStepPrefabs[currentQuestStepIndex];
         }
@@ -136,4 +137,3 @@ public class Quest
         return fullStatus;
     }
 }
-
