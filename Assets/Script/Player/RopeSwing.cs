@@ -37,6 +37,8 @@ public class RopeSwing : MonoBehaviour
     void Start()
     {
         player = this.gameObject;
+        lineRenderer = player.GetComponent<LineRenderer>();
+        lineRenderer.enabled = false;
     }
 
     // Update is called once per frame
@@ -53,7 +55,7 @@ public class RopeSwing : MonoBehaviour
         if (Input.GetMouseButtonUp(1) && !Input.GetMouseButton(0))
         {
             loop.CutRope();
-            Destroy(lineRenderer);
+            lineRenderer.enabled = false;
             player.GetComponent<PlayerMove>().IsRopeing = false;
         }
 
@@ -71,7 +73,7 @@ public class RopeSwing : MonoBehaviour
         GaugeBar();
 
         joint = player.AddComponent<SpringJoint>();
-        lineRenderer = player.AddComponent <LineRenderer>();
+        lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, transform.localPosition + transform.TransformDirection(swingVector));
 
         GameObject temp = new GameObject();
