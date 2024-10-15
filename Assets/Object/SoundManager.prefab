@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8049882819841897681}
   - component: {fileID: 3869168606250285837}
   m_Layer: 0
-  m_Name: SoundManager 1
+  m_Name: SoundManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 500179317668173574}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -643.9518, y: 287.1534, z: 989.07806}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
