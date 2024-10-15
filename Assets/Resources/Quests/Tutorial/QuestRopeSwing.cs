@@ -9,7 +9,7 @@ public class QuestRopeSwing : QuestStep
 
     private void Start()
     {
-        string status = visitPlace + "으로 가자!";
+        string status = visitPlace + "(으)로 가자!";
         ChangeState("", status);
     }
 

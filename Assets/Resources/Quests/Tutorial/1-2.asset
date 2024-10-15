@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 841fd60a11fd3e54bbfb8282e7f22157, type: 3}
-  m_Name: 1-1
+  m_Name: 1-2
   m_EditorClassIdentifier: 
-  <id>k__BackingField: 1-1
-  displayName: "\uAD34\uB3C4\uC758 \uAE30\uC220, \uB85C\uD504\uC2A4\uC719"
-  questPrerequisites: []
+  <id>k__BackingField: 1-2
+  displayName: "\uAD34\uB3C4\uC758 \uAE30\uC220, \uB85C\uD504\uB300\uC2DC"
+  questPrerequisites:
+  - {fileID: 11400000, guid: 249e7ef2eb252cf42ab9a4e8cd141e3c, type: 2}
   questStepPrefabs:
-  - {fileID: 3973060307527975012, guid: 0b66dfcea85fadb4983212b9b77dbbba, type: 3}
-  dialogSystemIndex: 0
+  - {fileID: 3973060307527975012, guid: 60a8876e32a0ec4468ec3a785242d7f5, type: 3}
+  dialogSystemIndex: 1

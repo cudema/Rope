@@ -8,7 +8,7 @@ public class Test : MonoBehaviour
 {
     public static Test instance;
     [SerializeField]
-    private DialogSystem[] dialogSystem;
+    private DialogSystem dialogSystem;
     [SerializeField]
     private GameObject blackPanel;
     [SerializeField]
@@ -26,8 +26,8 @@ public class Test : MonoBehaviour
 
     private IEnumerator Start()
     {
-        // 첫 번째 대화 진행
-        yield return new WaitUntil(() => dialogSystem[0].UpdateDialog());
+        // 프롤로그 진행
+        yield return new WaitUntil(() => dialogSystem.UpdateDialog());
 
         textMiddle.gameObject.SetActive(true);
         yield return StartCoroutine(Fade(0, 1));

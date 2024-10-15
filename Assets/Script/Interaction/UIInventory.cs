@@ -35,6 +35,7 @@ public class UIInventory : MonoBehaviour
 
     private void ShowUI()
     {
+        Time.timeScale = 0;
         inventoryPanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;  // 마우스 포인터 활성화
         Cursor.visible = true;
@@ -43,6 +44,7 @@ public class UIInventory : MonoBehaviour
 
     private void HideUI()
     {
+        Time.timeScale = 1;
         inventoryPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;  // 마우스 포인터 비활성화
         Cursor.visible = false;
