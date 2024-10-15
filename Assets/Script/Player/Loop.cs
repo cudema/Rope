@@ -27,7 +27,6 @@ public class Loop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetMouseButtonDown(0) && !Input.GetMouseButton(1) && !haveLoop)
         {
             haveLoop = true;
@@ -44,6 +43,11 @@ public class Loop : MonoBehaviour
 
     void ShootLoop()
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
+
         soundManager.SoundPlay("ThrowRope");
 
         loop.transform.SetParent(player.transform);

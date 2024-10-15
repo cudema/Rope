@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 500179317668173574}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -643.9518, y: 287.1534, z: 989.07806}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -81,11 +81,11 @@ MonoBehaviour:
   - name: ShootGun
     audioClip: {fileID: 8300000, guid: a1e78a9f8b33f0949b58faa9597399b6, type: 3}
     loop: 0
-    volume: 1
-  - name: Reroad
+    volume: 0.1
+  - name: Reload
     audioClip: {fileID: 8300000, guid: e8fbdcf707905a042b2786524676f8f1, type: 3}
     loop: 0
-    volume: 1
+    volume: 0.1
   - name: GetQuests
     audioClip: {fileID: 8300000, guid: 8b2fe746d9d6a9c45bc8be5d737b6a53, type: 3}
     loop: 0

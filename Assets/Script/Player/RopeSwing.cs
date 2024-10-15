@@ -69,6 +69,11 @@ public class RopeSwing : MonoBehaviour
     {
         //player.GetComponent<PlayerMove>().StartRope();
 
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
+
         SwingGauge -= swingGaugeConsumption;
         GaugeBar();
 
