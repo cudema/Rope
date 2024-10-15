@@ -968,9 +968,98 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundGroup:
-  - audioClip: {fileID: 0}
+  - name: Walk0
+    audioClip: {fileID: 8300000, guid: 4c38d22fd9ea6c845a02294cb296cc45, type: 3}
     loop: 0
-    volume: 0
+    volume: 1
+  - name: Walk1
+    audioClip: {fileID: 8300000, guid: 0084ee1b36ecaaa47976426d896ed875, type: 3}
+    loop: 0
+    volume: 1
+  - name: Walk2
+    audioClip: {fileID: 8300000, guid: 08d52bbf44f5868439441518ef0c3db9, type: 3}
+    loop: 0
+    volume: 1
+  - name: Walk3
+    audioClip: {fileID: 8300000, guid: 4cbef454f38f3814db4bfc1bcf413625, type: 3}
+    loop: 0
+    volume: 1
+  - name: Rush
+    audioClip: {fileID: 8300000, guid: cf89109750c8ac24ebdd29bced0e7122, type: 3}
+    loop: 0
+    volume: 1
+  - name: ThrowRope
+    audioClip: {fileID: 8300000, guid: 97e805c800051b84f9bc5defd4d855c0, type: 3}
+    loop: 0
+    volume: 1
+  - name: Attaching
+    audioClip: {fileID: 8300000, guid: 3408b6ab197a86749abe73b3c67a3865, type: 3}
+    loop: 0
+    volume: 1
+  - name: GetItem
+    audioClip: {fileID: 8300000, guid: d80892569f52dd64f8fe67c162598dc7, type: 3}
+    loop: 0
+    volume: 1
+  - name: ShootGun
+    audioClip: {fileID: 8300000, guid: a1e78a9f8b33f0949b58faa9597399b6, type: 3}
+    loop: 0
+    volume: 1
+  - name: Reroad
+    audioClip: {fileID: 8300000, guid: e8fbdcf707905a042b2786524676f8f1, type: 3}
+    loop: 0
+    volume: 1
+  - name: GetQuests
+    audioClip: {fileID: 8300000, guid: 8b2fe746d9d6a9c45bc8be5d737b6a53, type: 3}
+    loop: 0
+    volume: 1
+  - name: QuestsClear
+    audioClip: {fileID: 8300000, guid: 2dcaf4fe02887f94ab606567bc4198a8, type: 3}
+    loop: 0
+    volume: 1
+  - name: HP0
+    audioClip: {fileID: 8300000, guid: d44b2fd15725e2b4d81adc3f147f1868, type: 3}
+    loop: 0
+    volume: 1
+  - name: HP1
+    audioClip: {fileID: 8300000, guid: 43a28f974082fcb4fbd298ded289724a, type: 3}
+    loop: 0
+    volume: 1
+  - name: HP2
+    audioClip: {fileID: 8300000, guid: 4b9fd4d044f698846bd3f4bad8dbd85d, type: 3}
+    loop: 0
+    volume: 1
+  - name: HP3
+    audioClip: {fileID: 8300000, guid: 4d23e26c3df10684a8f5ae5ec2c7959c, type: 3}
+    loop: 0
+    volume: 1
+  - name: HP4
+    audioClip: {fileID: 8300000, guid: eb011a6387b975f429c75dcdd008d6ca, type: 3}
+    loop: 0
+    volume: 1
+  - name: HP5
+    audioClip: {fileID: 8300000, guid: f637ac63bf69eda4984b58329c0ee276, type: 3}
+    loop: 0
+    volume: 1
+  BGMGroup:
+  - name: GameBGM
+    audioClip: {fileID: 8300000, guid: 919ca1c255dbd5c48885a1e1a8b734e7, type: 3}
+    loop: 1
+    volume: 1
+  - name: MainMenu
+    audioClip: {fileID: 8300000, guid: 714854359b1a18542aa4f5b6a8ba8a6f, type: 3}
+    loop: 1
+    volume: 1
+  - name: HoppyEnding
+    audioClip: {fileID: 8300000, guid: 692bf4647eefb394d915c2f267bf6366, type: 3}
+    loop: 1
+    volume: 1
+  - name: SedEnding
+    audioClip: {fileID: 8300000, guid: c22bdb43feccf4844914844fce20ab2b, type: 3}
+    loop: 1
+    volume: 1
+  masterVolume: 1
+  soundVolume: 1
+  BGMVolume: 1
 --- !u!82 &727415649
 AudioSource:
   m_ObjectHideFlags: 0
