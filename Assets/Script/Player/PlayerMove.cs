@@ -21,15 +21,23 @@ public class PlayerMove : MonoBehaviour
     float ropeP;
 
     Rigidbody rb;
+    SoundManager soundManager;
 
     bool isGraund = false;
     public bool isRopeing = false;
+    public bool IsRopeing
+    {
+        set => isRopeing = value;
+        get => isRopeing;
+    }
+    public float AirMaxSpeed => airMaxSpeed;
     float maxSpeed;
 
     private void Awake()
     {
         Application.targetFrameRate = 60;
         rb = GetComponent<Rigidbody>();
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     // Start is called before the first frame update
@@ -38,6 +46,7 @@ public class PlayerMove : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        StartCoroutine(WalkSound());
         maxSpeed = graundMexSpeed;
     }
 
@@ -71,7 +80,10 @@ public class PlayerMove : MonoBehaviour
         if (isGraund && !isRopeing)
         { 
             rb.AddForce(0, Input.GetAxis("Jump") * jumpP * Time.deltaTime, 0);
-            rb.AddForce(-rb.velocity.normalized * 1500 * Time.deltaTime);
+            if (rb.velocity.magnitude > graundMexSpeed / 3)
+            {
+                rb.AddForce(-rb.velocity.normalized * 1500 * Time.deltaTime);
+            }
         }
 
         if (rb.velocity.magnitude > maxSpeed && isGraund)
@@ -87,6 +99,21 @@ public class PlayerMove : MonoBehaviour
         //{
         //    rb.AddRelativeForce(rb.velocity.normalized * 1000f * Time.deltaTime);
         //}
+    }
+
+    IEnumerator WalkSound()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(() => rb.velocity.magnitude > 0.1f && isGraund);
+
+            int temp = Random.Range(0, 4);
+
+            soundManager.SoundPlay("Walk" + temp);
+
+            yield return new WaitForSeconds(0.25f);
+        }
+
     }
 
     public void StartRope()
