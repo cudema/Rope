@@ -1070,6 +1070,10 @@ PrefabInstance:
       propertyPath: recoverySwingGauge
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4182216044320080854, guid: daa4f565052cd8e4689f2db497875493, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5913366905068917308, guid: daa4f565052cd8e4689f2db497875493, type: 3}
       propertyPath: slider
       value: 
