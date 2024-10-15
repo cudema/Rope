@@ -46,7 +46,6 @@ public class UIInventory : MonoBehaviour
         inventoryPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;  // 마우스 포인터 비활성화
         Cursor.visible = false;
-        EventSystem.current.SetSelectedGameObject(null);
     }
 
     public bool IsPointerOverUI()

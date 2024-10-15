@@ -90,7 +90,7 @@ public class QuestLogUI : MonoBehaviour
 
     public bool IsPointerOverUI()
     {
-        return EventSystem.current.IsPointerOverGameObject(); // 마우스가 UI 위에 있는지 확인
+        return EventSystem.current.IsPointerOverGameObject();
     }
 
 }
