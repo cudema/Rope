@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     bool playerInRange = false;
     GameObject bullet;
     LineRenderer lineRenderer;
+    SoundManager soundManager;
 
     private void Awake()
     {
@@ -31,6 +32,11 @@ public class Enemy : MonoBehaviour
 
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.enabled = false;
+    }
+
+    private void Start()
+    {
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     private void Update()
@@ -72,13 +78,15 @@ public class Enemy : MonoBehaviour
         //ÃÑ ½î±â
         lineRenderer.enabled = false;
         bullet.SetActive(true);
-        Debug.Log("»§");
+        soundManager.SoundPlay("ShootGun");
 
         yield return new WaitForSeconds(0.2f);
 
         bullet.SetActive(false);
 
         yield return new WaitForSeconds(reloadingTime);
+
+        soundManager.SoundPlay("Reload");
 
         bullet.transform.position = transform.position;
         playerInRange = false;

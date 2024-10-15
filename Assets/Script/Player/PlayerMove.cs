@@ -105,7 +105,7 @@ public class PlayerMove : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitUntil(() => rb.velocity.magnitude > 0.1f && isGraund);
+            yield return new WaitUntil(() => rb.velocity.magnitude > 7.0f && isGraund && !IsRopeing);
 
             int temp = Random.Range(0, 4);
 
@@ -123,6 +123,9 @@ public class PlayerMove : MonoBehaviour
 
     public void PlayerKnockBack(Vector3 criteria, float pawer)
     {
+        int temp = Random.Range(0, 6);
+        soundManager.SoundPlay("HP" + temp);
+
         Vector3 dis = new Vector3(transform.position.x - criteria.x, transform.position.y - criteria.y, transform.position.z - criteria.z);
         rb.AddForce(dis.normalized * pawer);
         loop.CutRope();

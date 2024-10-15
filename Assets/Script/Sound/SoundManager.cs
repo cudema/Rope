@@ -60,6 +60,7 @@ public class SoundManager : MonoBehaviour
         {
             GameObject soundObject = new GameObject(soundGroup[i].name);
             soundGroup[i].SetSource(soundObject.AddComponent<AudioSource>());
+            soundGroup[i].SetVolume(masterVolume * soundVolume);
             soundObject.transform.SetParent(this.transform);
         }
 
@@ -67,6 +68,7 @@ public class SoundManager : MonoBehaviour
         {
             GameObject soundObject = new GameObject(BGMGroup[i].name);
             BGMGroup[i].SetSource(soundObject.AddComponent<AudioSource>());
+            BGMGroup[i].SetVolume(masterVolume * BGMVolume);
             soundObject.transform.SetParent(this.transform);
         }
     }
