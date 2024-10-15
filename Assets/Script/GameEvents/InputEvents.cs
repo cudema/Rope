@@ -14,4 +14,10 @@ public class InputEvents
     {
         onQuestLogTogglePressed?.Invoke();
     }
+
+    public event Action onInventoryPressed;
+    public void InventoryPressed()
+    {
+        onInventoryPressed?.Invoke();
+    }
 }

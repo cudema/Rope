@@ -14,11 +14,14 @@ public class CameraRotate : MonoBehaviour
     [SerializeField]
     Transform playerTransform;
 
+
+
     private void Awake()
     {
         Vector3 angles = transform.eulerAngles;
         x = angles.x;
         y = angles.y;
+
     }
 
     // Start is called before the first frame update
@@ -30,6 +33,7 @@ public class CameraRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         transform.position = playerTransform.position + (Vector3.up * 1);
 
         x -= xMoveSpeed * Input.GetAxisRaw("Mouse Y") * Time.deltaTime;

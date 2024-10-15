@@ -66,7 +66,7 @@ public class QuestPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Detector"))
         {
             playerIsNear = true;
             Debug.Log("플레이어가 퀘스트 지점에 접근했습니다.");
@@ -75,7 +75,7 @@ public class QuestPoint : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Detector"))
         {
             playerIsNear = false;
             Debug.Log("플레이어가 퀘스트 지점을 떠났습니다.");

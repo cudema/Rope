@@ -48,7 +48,9 @@ public class QuestLogUI : MonoBehaviour
     private void ShowUI()
     {
         contentParent.SetActive(true);
-        if(firstSelectedButton != null)
+        Cursor.lockState = CursorLockMode.None;  // 마우스 포인터 활성화
+        Cursor.visible = true;
+        if (firstSelectedButton != null)
         {
             firstSelectedButton.Select();
         }
@@ -57,6 +59,8 @@ public class QuestLogUI : MonoBehaviour
     private void HideUI()
     {
         contentParent.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;  // 마우스 포인터 비활성화
+        Cursor.visible = false;
         EventSystem.current.SetSelectedGameObject(null);
     }
 
@@ -82,6 +86,11 @@ public class QuestLogUI : MonoBehaviour
         {
             questRequirmentsText.text += prerequisiteQuestInfo.displayName + "\n";
         }
+    }
+
+    public bool IsPointerOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject(); // 마우스가 UI 위에 있는지 확인
     }
 
 }
