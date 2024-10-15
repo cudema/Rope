@@ -5,6 +5,11 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     private Dictionary<string, Quest> questMap;
+    [SerializeField]
+    private DialogSystem[] StartdialogSystems;
+    [SerializeField]
+    private DialogSystem[] EnddialogSystems;
+
 
     private void Awake()
     {
@@ -29,9 +34,9 @@ public class QuestManager : MonoBehaviour
 
     private void Start()
     {
-        foreach(Quest quest in questMap.Values)
+        foreach (Quest quest in questMap.Values)
         {
-            if(quest.state == QuestState.IN_PROGRESS)
+            if (quest.state == QuestState.IN_PROGRESS)
             {
                 quest.InstantiateCurrentQuestStep(this.transform);
             }
@@ -50,9 +55,9 @@ public class QuestManager : MonoBehaviour
     {
         bool meetsRequirements = true;
 
-        foreach(QuestInfo prerequisiteQuestInfo in quest.info.questPrerequisites)
+        foreach (QuestInfo prerequisiteQuestInfo in quest.info.questPrerequisites)
         {
-            if(GetQuestById(prerequisiteQuestInfo.id).state != QuestState.FINISHED)
+            if (GetQuestById(prerequisiteQuestInfo.id).state != QuestState.FINISHED)
             {
                 meetsRequirements = false;
             }
@@ -62,9 +67,9 @@ public class QuestManager : MonoBehaviour
 
     private void Update()
     {
-        foreach(Quest quest in questMap.Values)
+        foreach (Quest quest in questMap.Values)
         {
-            if(quest.state == QuestState.REQUIREMENTS_NOT_MET && CheckRequirementsMet(quest))
+            if (quest.state == QuestState.REQUIREMENTS_NOT_MET && CheckRequirementsMet(quest))
             {
                 ChangeQuestState(quest.info.id, QuestState.CAN_START);
             }
@@ -76,6 +81,11 @@ public class QuestManager : MonoBehaviour
         Quest quest = GetQuestById(id);
         quest.InstantiateCurrentQuestStep(this.transform);
         ChangeQuestState(quest.info.id, QuestState.IN_PROGRESS);
+
+        if (StartdialogSystems.Length > quest.info.dialogSystemIndex) 
+        {
+            StartCoroutine(startDialogStart(quest, quest.info.dialogSystemIndex)); 
+        }
     }
 
     private void AdvanceQuest(string id)
@@ -83,7 +93,7 @@ public class QuestManager : MonoBehaviour
         Quest quest = GetQuestById(id);
         quest.MoveToNextStep();
 
-        if(quest.CurrentStepExists())
+        if (quest.CurrentStepExists())
         {
             quest.InstantiateCurrentQuestStep(this.transform);
         }
@@ -96,9 +106,26 @@ public class QuestManager : MonoBehaviour
     private void FinishQuest(string id)
     {
         Quest quest = GetQuestById(id);
-        //퀘스트를 완료하면 실행할 동작
         ChangeQuestState(quest.info.id, QuestState.FINISHED);
+
+        if (EnddialogSystems.Length > quest.info.dialogSystemIndex)
+        {
+            StartCoroutine(endDialogStart(quest, quest.info.dialogSystemIndex));
+        }
     }
+
+    private IEnumerator startDialogStart(Quest quest, int index)
+    {
+        index = quest.info.dialogSystemIndex;
+        yield return new WaitUntil(() => StartdialogSystems[index].UpdateDialog());
+    }
+
+    private IEnumerator endDialogStart(Quest quest, int index)
+    {
+        index = quest.info.dialogSystemIndex;
+        yield return new WaitUntil(() => EnddialogSystems[index].UpdateDialog());
+    }
+
 
     private void QuestStepStateChange(string id, int stepIndex, QuestStepState questStepState)
     {
@@ -111,9 +138,9 @@ public class QuestManager : MonoBehaviour
     {
         QuestInfo[] allQuests = Resources.LoadAll<QuestInfo>("Quests");
         Dictionary<string, Quest> idToQuestMap = new Dictionary<string, Quest>();
-        foreach(QuestInfo questInfo in allQuests)
+        foreach (QuestInfo questInfo in allQuests)
         {
-            if(idToQuestMap.ContainsKey(questInfo.id))
+            if (idToQuestMap.ContainsKey(questInfo.id))
             {
                 Debug.Log("중복된 id입니다.");
             }
@@ -122,10 +149,10 @@ public class QuestManager : MonoBehaviour
         return idToQuestMap;
     }
 
-    private Quest GetQuestById(string id)
+    public Quest GetQuestById(string id)
     {
         Quest quest = questMap[id];
-        if(quest == null)
+        if (quest == null)
         {
             Debug.Log("잘못된 id입니다.");
         }
@@ -134,7 +161,7 @@ public class QuestManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        foreach(Quest quest in questMap.Values)
+        foreach (Quest quest in questMap.Values)
         {
             SaveQuest(quest);
         }
@@ -159,7 +186,7 @@ public class QuestManager : MonoBehaviour
         Quest quest = null;
         try
         {
-            if(PlayerPrefs.HasKey(questInfo.id))
+            if (PlayerPrefs.HasKey(questInfo.id))
             {
                 string serializedData = PlayerPrefs.GetString(questInfo.id);
                 QuestData questData = JsonUtility.FromJson<QuestData>(serializedData);

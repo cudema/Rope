@@ -21,6 +21,11 @@ public class Loop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (FindObjectOfType<QuestLogUI>().IsPointerOverUI())
+        {
+            return; // 마우스가 UI 위에 있을 경우 로프 발사 입력을 무시
+        }
+
         if (Input.GetMouseButtonDown(0) && !Input.GetMouseButton(1) && !haveLoop)
         {
             haveLoop = true;

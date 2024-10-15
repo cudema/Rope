@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="QuestInfo", menuName = "ScriptableObject/QuestInfo", order = 1)]
+[CreateAssetMenu(fileName ="QuestInfo", menuName = "ScriptableObjects/QuestInfo", order = 1)]
 public class QuestInfo : ScriptableObject
 {
     [field: SerializeField]
@@ -16,6 +16,9 @@ public class QuestInfo : ScriptableObject
 
     [Header("단계")]
     public GameObject[] questStepPrefabs;
+
+    [Header("대화 시스템 인덱스")]
+    public int dialogSystemIndex;
 
     private void OnValidate()
     {
