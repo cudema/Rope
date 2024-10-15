@@ -30,11 +30,13 @@ public class LoopMove : MonoBehaviour
 
     SpringJoint joint;
     RopeSwing playerSwing;
+    SoundManager soundManager;
 
     // Start is called before the first frame update
     void Start()
     {
         playerSwing = player.GetComponent<RopeSwing>();
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
@@ -75,6 +77,7 @@ public class LoopMove : MonoBehaviour
 
     IEnumerator Rush()
     {
+        soundManager.SoundPlay("Rush");
         joint.spring = rushP;
         joint.damper = 0.1f;
         joint.minDistance = 0.1f;
@@ -96,6 +99,8 @@ public class LoopMove : MonoBehaviour
         {
             return;
         }
+
+        soundManager.SoundPlay("Attaching");
 
         StartCoroutine(SwingGaugeRecovery());
 

@@ -8,14 +8,20 @@ public class Loop : MonoBehaviour
     GameObject loop;
 
     GameObject _loop;
-
     GameObject player;
+    SoundManager soundManager;
+
     bool haveLoop = false;
     // Start is called before the first frame update
     void Awake()
     {
         loop.SetActive(false);
         player = transform.parent.gameObject;
+    }
+
+    private void Start()
+    {
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
@@ -37,6 +43,8 @@ public class Loop : MonoBehaviour
 
     void ShootLoop()
     {
+        soundManager.SoundPlay("ThrowRope");
+
         loop.transform.SetParent(player.transform);
         loop.SetActive(true);
         loop.transform.position = transform.position;
