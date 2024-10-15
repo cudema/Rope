@@ -27,6 +27,7 @@ public class Loop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0) && !Input.GetMouseButton(1) && !haveLoop)
         {
             haveLoop = true;

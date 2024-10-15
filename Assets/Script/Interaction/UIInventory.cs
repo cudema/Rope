@@ -48,11 +48,6 @@ public class UIInventory : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public bool IsPointerOverUI()
-    {
-        return EventSystem.current.IsPointerOverGameObject(); // 마우스가 UI 위에 있는지 확인
-    }
-
     public void GetItem(int index)
     {
         items[index].ItemCount++;

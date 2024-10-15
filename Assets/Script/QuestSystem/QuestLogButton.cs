@@ -22,11 +22,6 @@ public class QuestLogButton : MonoBehaviour, IPointerClickHandler
         this.onSelectAction = selectAction;
     }
 
-    //public void OnSelect(BaseEventData eventData)
-    //{
-    //    onSelectAction();
-    //}
-
     public void OnPointerClick(PointerEventData eventData)
     {
         onSelectAction?.Invoke();  // 버튼 클릭 시 액션 호출

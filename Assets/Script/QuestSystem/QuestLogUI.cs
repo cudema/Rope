@@ -47,6 +47,7 @@ public class QuestLogUI : MonoBehaviour
 
     private void ShowUI()
     {
+        Time.timeScale = 0;
         contentParent.SetActive(true);
         Cursor.lockState = CursorLockMode.None;  // 마우스 포인터 활성화
         Cursor.visible = true;
@@ -58,6 +59,7 @@ public class QuestLogUI : MonoBehaviour
 
     private void HideUI()
     {
+        Time.timeScale = 1;
         contentParent.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;  // 마우스 포인터 비활성화
         Cursor.visible = false;
@@ -87,10 +89,4 @@ public class QuestLogUI : MonoBehaviour
             questRequirmentsText.text += prerequisiteQuestInfo.displayName + "\n";
         }
     }
-
-    public bool IsPointerOverUI()
-    {
-        return EventSystem.current.IsPointerOverGameObject();
-    }
-
 }
