@@ -6,7 +6,7 @@ public class QuestSteal : QuestStep
 {
     private int itemsCollected = 0; // 수집한 아이템 개수
     private int itemsToComplete = 1; // 완료하기 위한 아이템 개수
-    private int targetItemID = 4; // 수집할 아이템의 ID
+    private int targetItemID = 3; // 수집할 아이템의 ID
 
     private void Start()
     {

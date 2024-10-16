@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3843205321983783902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6136071197039849186}
+  - component: {fileID: 5451898508449429350}
+  m_Layer: 0
+  m_Name: SadEnding
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6136071197039849186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3843205321983783902}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5451898508449429350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3843205321983783902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82f76bf1214472b4c81041f337a32fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speakers:
+  - imageDialog: {fileID: 0}
+    textName: {fileID: 0}
+    textDialogue: {fileID: 0}
+    objectArrow: {fileID: 0}
+  dialogs:
+  - speakerIndex: 0
+    name: "\uAE40\uCD98\uBC30"
+    dialogue: "\uC628 \uB3C4\uC2DC\uB97C \uB4A4\uC84C\uC9C0\uB9CC \uB098\uC758 \uADF8\uB140\uB97C
+      \uCC3E\uC9C0 \uBABB\uD588\uB2E4..."
+  - speakerIndex: 0
+    name: "\uAE40\uCD98\uBC30"
+    dialogue: "\uC774 \uC644\uBCBD\uD55C \uC9D1\uC5D0 \uB098 \uD63C\uC790 \uC678\uB86D\uAD6C\uB098"
+  - speakerIndex: 0
+    name: "\uAE40\uCD98\uBC30"
+    dialogue: "\uB0B4 \uC6B4\uBA85\uC758 \uADF8\uB300\uB294 \uB300\uCCB4 \uC5B4\uB514
+      \uC788\uB2E8 \uB9D0\uC778\uAC00!!!"

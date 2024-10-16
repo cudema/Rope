@@ -21,3 +21,7 @@ MonoBehaviour:
   isStartDialog: 1
   StartdialogSystemIndex: 1
   EnddialogSystemIndex: 0
+  isBlackOut: 0
+  isShowPhoto: 0
+  photoSprite: {fileID: 0}
+  isMoveNextScene: 0
