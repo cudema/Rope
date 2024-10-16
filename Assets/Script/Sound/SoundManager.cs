@@ -32,6 +32,7 @@ class Sound
 
     public void Play()
     {
+        source.volume = volume;
         source.Play();
     }
 
@@ -71,6 +72,9 @@ public class SoundManager : MonoBehaviour
             BGMGroup[i].SetVolume(masterVolume * BGMVolume);
             soundObject.transform.SetParent(this.transform);
         }
+
+        SetSoundVolume(soundVolume);
+        SetBgmVolume(BGMVolume);
     }
 
     public void SoundPlay(string _name)
@@ -121,7 +125,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void SetBgmBVolume(float _value)
+    public void SetBgmVolume(float _value)
     {
         BGMVolume = _value;
         for (int i = 0; i < soundGroup.Length; i++)

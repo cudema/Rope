@@ -135,9 +135,9 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: c22bdb43feccf4844914844fce20ab2b, type: 3}
     loop: 1
     volume: 1
-  masterVolume: 1
-  soundVolume: 1
-  BGMVolume: 1
+  masterVolume: 0.247
+  soundVolume: 0.227
+  BGMVolume: 0.244
 --- !u!81 &3869168606250285837
 AudioListener:
   m_ObjectHideFlags: 0

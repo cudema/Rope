@@ -48,10 +48,6 @@ public class Enemy : MonoBehaviour
         {
             player = Physics.OverlapSphere(transform.position, range, layer);
         }
-        else
-        {
-            transform.LookAt(player[0].transform.position);
-        }
         if (player.Length > 0 && !playerInRange)
         {
             LookOtPlayer();
@@ -80,6 +76,7 @@ public class Enemy : MonoBehaviour
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, player[0].transform.position);
             time += Time.deltaTime;
+            transform.LookAt(player[0].transform.position);
             yield return null;
         }
 
