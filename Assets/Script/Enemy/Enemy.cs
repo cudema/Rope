@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     {
         bullet = transform.GetChild(0).gameObject;
         bullet.SetActive(false);
-        bullet.transform.position = transform.position + Vector3.up;
+        bullet.transform.position = transform.position + Vector3.up + (Vector3.right * 0.2f);
 
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.enabled = false;
@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour
 
         while (time < aimingTime)
         {
-            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(0, bullet.transform.position);
             lineRenderer.SetPosition(1, player[0].transform.position);
             time += Time.deltaTime;
             transform.LookAt(player[0].transform.position);
@@ -98,7 +98,6 @@ public class Enemy : MonoBehaviour
 
         soundManager.SoundPlay("Reload");
 
-        bullet.transform.position = transform.position;
         playerInRange = false;
 
         yield break;
