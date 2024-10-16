@@ -12,6 +12,8 @@ class Sound
     AudioClip audioClip;
     [SerializeField]
     bool loop;
+    [SerializeField]
+    bool mute;
     [SerializeField, Range(0, 1)]
     float volume;
 
@@ -23,11 +25,13 @@ class Sound
         this.source.clip = audioClip;
         this.source.loop = loop;
         this.source.volume = volume;
+        this.source.mute = this.mute;
     }
 
     public void SetVolume(float volume)
     {
         this.volume = Mathf.Clamp(volume, 0, 1);
+        source.volume = this.volume;
     }
 
     public void Play()
@@ -39,6 +43,13 @@ class Sound
     public void Stop() 
     { 
         source.Stop();
+    }
+
+    public void SetMute(bool mute)
+    {
+
+        this.mute = mute;
+        source.mute = this.mute;
     }
 }
 public class SoundManager : MonoBehaviour
@@ -61,7 +72,7 @@ public class SoundManager : MonoBehaviour
         {
             GameObject soundObject = new GameObject(soundGroup[i].name);
             soundGroup[i].SetSource(soundObject.AddComponent<AudioSource>());
-            soundGroup[i].SetVolume(masterVolume * soundVolume);
+            soundGroup[i].SetVolume(soundVolume);
             soundObject.transform.SetParent(this.transform);
         }
 
@@ -69,12 +80,14 @@ public class SoundManager : MonoBehaviour
         {
             GameObject soundObject = new GameObject(BGMGroup[i].name);
             BGMGroup[i].SetSource(soundObject.AddComponent<AudioSource>());
-            BGMGroup[i].SetVolume(masterVolume * BGMVolume);
+            BGMGroup[i].SetVolume(BGMVolume);
             soundObject.transform.SetParent(this.transform);
         }
 
         SetSoundVolume(soundVolume);
         SetBgmVolume(BGMVolume);
+
+        PlayBGM("MainMenu");
     }
 
     public void SoundPlay(string _name)
@@ -121,16 +134,51 @@ public class SoundManager : MonoBehaviour
         soundVolume = _value;
         for (int i = 0; i < soundGroup.Length; i++)
         {
-            soundGroup[i].SetVolume(_value);
+            soundGroup[i].SetVolume(masterVolume * soundVolume);
         }
     }
 
     public void SetBgmVolume(float _value)
     {
         BGMVolume = _value;
+        for (int i = 0; i < BGMGroup.Length; i++)
+        {
+            BGMGroup[i].SetVolume(masterVolume * BGMVolume);
+        }
+    }
+
+    public void SetMasterVolume(float _value)
+    {
+        masterVolume = _value;
         for (int i = 0; i < soundGroup.Length; i++)
         {
-            soundGroup[i].SetVolume(_value);
+            soundGroup[i].SetVolume(masterVolume * soundVolume);
         }
+        for (int i = 0; i < BGMGroup.Length; i++)
+        {
+            BGMGroup[i].SetVolume(masterVolume * BGMVolume);
+        }
+    }
+
+    public void SoundMute(bool temp)
+    {
+        for (int i = 0; i < soundGroup.Length; i++)
+        {
+            soundGroup[i].SetMute(temp);
+        }
+    }
+
+    public void BGMMute(bool temp)
+    {
+        for (int i = 0; i < BGMGroup.Length; i++)
+        {
+            BGMGroup[i].SetMute(temp);
+        }
+    }
+
+    public void MasterMute(bool temp)
+    {
+        SoundMute(!temp);
+        BGMMute(!temp);
     }
 }
