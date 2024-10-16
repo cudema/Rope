@@ -17,4 +17,6 @@ MonoBehaviour:
   questPrerequisites: []
   questStepPrefabs:
   - {fileID: 3973060307527975012, guid: 0b66dfcea85fadb4983212b9b77dbbba, type: 3}
-  dialogSystemIndex: 0
+  isStartDialog: 1
+  StartdialogSystemIndex: 0
+  EnddialogSystemIndex: 0

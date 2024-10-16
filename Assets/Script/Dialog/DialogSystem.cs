@@ -38,6 +38,9 @@ public class DialogSystem : MonoBehaviour
         {
             Setup();
             isFirst = false;
+            isDialogActive = true;
+            SetNextDialog();  // 첫 번째 대화 시작
+            return false;
         }
         isDialogActive = true;
         if (Input.GetKeyDown(KeyCode.Return))
@@ -71,8 +74,10 @@ public class DialogSystem : MonoBehaviour
     {
         currentDialogIndex++;
         currentSpeakerIndex = dialogs[currentSpeakerIndex].speakerIndex;
+
         SetActiveObjects(speakers[currentSpeakerIndex], true);
         Time.timeScale = 0;
+
         speakers[currentSpeakerIndex].textName.text = dialogs[currentDialogIndex].name;
         StartCoroutine("OnTypingText");
     }

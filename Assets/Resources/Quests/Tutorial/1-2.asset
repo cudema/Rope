@@ -18,4 +18,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 249e7ef2eb252cf42ab9a4e8cd141e3c, type: 2}
   questStepPrefabs:
   - {fileID: 3973060307527975012, guid: 60a8876e32a0ec4468ec3a785242d7f5, type: 3}
-  dialogSystemIndex: 1
+  isStartDialog: 1
+  StartdialogSystemIndex: 1
+  EnddialogSystemIndex: 0

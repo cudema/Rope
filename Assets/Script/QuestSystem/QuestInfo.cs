@@ -17,8 +17,14 @@ public class QuestInfo : ScriptableObject
     [Header("단계")]
     public GameObject[] questStepPrefabs;
 
-    [Header("대화 시스템 인덱스")]
-    public int dialogSystemIndex;
+    [Header("시작 대화 인덱스 사용")]
+    public bool isStartDialog;
+
+    [Header("시작 대화 시스템 인덱스")]
+    public int StartdialogSystemIndex;
+
+    [Header("종료 대화 시스템 인덱스")]
+    public int EnddialogSystemIndex;
 
     private void OnValidate()
     {

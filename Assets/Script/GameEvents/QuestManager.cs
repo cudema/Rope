@@ -6,9 +6,7 @@ public class QuestManager : MonoBehaviour
 {
     private Dictionary<string, Quest> questMap;
     [SerializeField]
-    private DialogSystem[] StartdialogSystems;
-    [SerializeField]
-    private DialogSystem[] EnddialogSystems;
+    private DialogManager dialogManager;
 
 
     private void Awake()
@@ -82,10 +80,7 @@ public class QuestManager : MonoBehaviour
         quest.InstantiateCurrentQuestStep(this.transform);
         ChangeQuestState(quest.info.id, QuestState.IN_PROGRESS);
 
-        if (StartdialogSystems.Length > quest.info.dialogSystemIndex) 
-        {
-            StartCoroutine(startDialogStart(quest, quest.info.dialogSystemIndex)); 
-        }
+        StartCoroutine(dialogManager.PlayStartDialog(quest.info.StartdialogSystemIndex));
     }
 
     private void AdvanceQuest(string id)
@@ -108,24 +103,11 @@ public class QuestManager : MonoBehaviour
         Quest quest = GetQuestById(id);
         ChangeQuestState(quest.info.id, QuestState.FINISHED);
 
-        if (EnddialogSystems.Length > quest.info.dialogSystemIndex)
+        if(quest.info.isStartDialog == false)
         {
-            StartCoroutine(endDialogStart(quest, quest.info.dialogSystemIndex));
-        }
+            StartCoroutine(dialogManager.PlayEndDialog(quest.info.EnddialogSystemIndex));
+        } 
     }
-
-    private IEnumerator startDialogStart(Quest quest, int index)
-    {
-        index = quest.info.dialogSystemIndex;
-        yield return new WaitUntil(() => StartdialogSystems[index].UpdateDialog());
-    }
-
-    private IEnumerator endDialogStart(Quest quest, int index)
-    {
-        index = quest.info.dialogSystemIndex;
-        yield return new WaitUntil(() => EnddialogSystems[index].UpdateDialog());
-    }
-
 
     private void QuestStepStateChange(string id, int stepIndex, QuestStepState questStepState)
     {

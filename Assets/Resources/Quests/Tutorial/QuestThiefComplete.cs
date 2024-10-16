@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class QuestThiefComplete : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private string NPCName;
+
+
+    private void OnEnable()
     {
-        
+        GameEventsManager.instance.inputEvents.onSubmitPressed += HandleSubmit;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        GameEventsManager.instance.inputEvents.onSubmitPressed -= HandleSubmit;
     }
 }
