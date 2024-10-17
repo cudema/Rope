@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     float reloadingTime;
 
+    [SerializeField]
+    Animator animator;
+
     public float Range => range;
 
     bool playerInRange = false;
@@ -28,7 +31,7 @@ public class Enemy : MonoBehaviour
     {
         bullet = transform.GetChild(0).gameObject;
         bullet.SetActive(false);
-        bullet.transform.position = transform.position;
+        bullet.transform.position = transform.position + Vector3.up + (Vector3.right * 0.2f);
 
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.enabled = false;
@@ -70,9 +73,10 @@ public class Enemy : MonoBehaviour
 
         while (time < aimingTime)
         {
-            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(0, bullet.transform.position);
             lineRenderer.SetPosition(1, player[0].transform.position);
             time += Time.deltaTime;
+            transform.LookAt(player[0].transform.position);
             yield return null;
         }
 
@@ -84,6 +88,7 @@ public class Enemy : MonoBehaviour
         lineRenderer.enabled = false;
         bullet.SetActive(true);
         soundManager.SoundPlay("ShootGun");
+        animator.SetTrigger("Shoot");
 
         yield return new WaitForSeconds(0.2f);
 
@@ -93,7 +98,6 @@ public class Enemy : MonoBehaviour
 
         soundManager.SoundPlay("Reload");
 
-        bullet.transform.position = transform.position;
         playerInRange = false;
 
         yield break;

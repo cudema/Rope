@@ -18,6 +18,7 @@ public class RopeSwing : MonoBehaviour
     GameObject player;
     SpringJoint joint;
     LineRenderer lineRenderer;
+    SoundManager soundManager;
 
     int swingGauge;
     public int SwingGauge
@@ -39,6 +40,7 @@ public class RopeSwing : MonoBehaviour
         player = this.gameObject;
         lineRenderer = player.GetComponent<LineRenderer>();
         lineRenderer.enabled = false;
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
@@ -76,6 +78,8 @@ public class RopeSwing : MonoBehaviour
 
         SwingGauge -= swingGaugeConsumption;
         GaugeBar();
+
+        soundManager.SoundPlay("ThrowRope");
 
         joint = player.AddComponent<SpringJoint>();
         lineRenderer.enabled = true;
