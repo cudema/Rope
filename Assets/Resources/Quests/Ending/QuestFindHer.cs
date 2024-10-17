@@ -11,6 +11,9 @@ public class QuestFindHer : QuestStep
     private float timeLimit = 900f; // 15분
     private float timeRemaining;
 
+
+    SoundManager soundmanager;
+
     private void OnEnable()
     {
         GameEventsManager.instance.inputEvents.onSubmitPressed += HandleInteraction;
@@ -25,6 +28,7 @@ public class QuestFindHer : QuestStep
     {
         timeRemaining = timeLimit; 
         UpdateState(); 
+        soundmanager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     private void Update()
@@ -49,6 +53,7 @@ public class QuestFindHer : QuestStep
             string status = NPCName + "과 대화했다.";
             ChangeState("", status); 
             FinishQuestStep();
+            soundmanager.SoundPlay("HoppyEnding");
             SceneManager.LoadScene("Happyending");
         }
     }

@@ -14,11 +14,14 @@ public class Happyending : MonoBehaviour
     private Image photo;
     [SerializeField]
     private Sprite photosprite;
+    SoundManager soundmanager;
+
 
 
     private void Awake()
     {
         photo.sprite = photosprite;
+        soundmanager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     private IEnumerator Start()
@@ -27,6 +30,7 @@ public class Happyending : MonoBehaviour
         yield return new WaitUntil(() => dialogSystem.UpdateDialog());
         photo.gameObject.SetActive(false);
         yield return new WaitForSeconds(2);
+        soundmanager.SoundPlay("MainMenu");
         SceneManager.LoadScene("Title");
 
     }
