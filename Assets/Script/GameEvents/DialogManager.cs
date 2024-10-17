@@ -93,7 +93,7 @@ public class DialogManager : MonoBehaviour
 
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            yield return new WaitForSeconds(1); 
+            yield return new WaitForSeconds(4); 
             SceneManager.LoadScene(nextSceneIndex); // 다음 씬으로 전환
         }
         else
