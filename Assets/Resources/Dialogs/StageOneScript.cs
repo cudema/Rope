@@ -27,8 +27,7 @@ public class StageOneScript : MonoBehaviour
         photo.gameObject.SetActive(true);
         yield return new WaitUntil(() => dialogSystem.UpdateDialog());
         photo.gameObject.SetActive(false);
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("Title");
+        
     }
 
 }
