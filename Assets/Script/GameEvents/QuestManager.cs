@@ -8,6 +8,8 @@ public class QuestManager : MonoBehaviour
     [SerializeField]
     private DialogManager dialogManager;
 
+    SoundManager soundmanager;
+
 
     private void Awake()
     {
@@ -40,6 +42,8 @@ public class QuestManager : MonoBehaviour
             }
             GameEventsManager.instance.questEvents.QuestStateChange(quest);
         }
+
+        soundmanager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     private void ChangeQuestState(string id, QuestState state)
@@ -83,6 +87,7 @@ public class QuestManager : MonoBehaviour
         bool startBlackout = quest.info.isBlackOut;
         int BlackoutTiming = quest.info.BlackOutTiming;
 ;
+        soundmanager.SoundPlay("GetQuests");
 
         StartCoroutine(dialogManager.PlayStartDialog(quest.info.StartdialogSystemIndex, null, startBlackout, BlackoutTiming));
     }
@@ -110,6 +115,8 @@ public class QuestManager : MonoBehaviour
         bool startBlackout = quest.info.isBlackOut;
         bool nextScene = quest.info.isMoveNextScene;
         int BlackoutTiming = quest.info.BlackOutTiming;
+
+        soundmanager.SoundPlay("QuestsClear");
 
         if (quest.info.isStartDialog == false)
         {

@@ -15,6 +15,8 @@ public class ObjectDetector : MonoBehaviour
     private GameObject detectedObject;
     private int detectedItemID = -1;
 
+    SoundManager soundmanager;
+
     private void Awake()
     {
         if (Instance == null)
@@ -25,6 +27,8 @@ public class ObjectDetector : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        soundmanager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     private void OnEnable()
@@ -98,6 +102,8 @@ public class ObjectDetector : MonoBehaviour
             int index = detectedObject.gameObject.GetComponent<Item>().itemID - 1;
             uIInventory.GetItem(index);
             Destroy(detectedObject);
+
+            soundmanager.SoundPlay("GetItem");
 
             detectedObject = null;
             detectedItemID = -1;
