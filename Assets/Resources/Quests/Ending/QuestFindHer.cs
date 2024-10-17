@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class QuestFindHer : QuestStep
 {
@@ -47,7 +48,8 @@ public class QuestFindHer : QuestStep
         {
             string status = NPCName + "과 대화했다.";
             ChangeState("", status); 
-            FinishQuestStep(); 
+            FinishQuestStep();
+            SceneManager.LoadScene("Happyending");
         }
     }
 

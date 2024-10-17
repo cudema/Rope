@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class StageOneScript : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class StageOneScript : MonoBehaviour
         photo.gameObject.SetActive(true);
         yield return new WaitUntil(() => dialogSystem.UpdateDialog());
         photo.gameObject.SetActive(false);
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Title");
     }
 
 }
