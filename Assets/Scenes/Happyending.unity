@@ -353,6 +353,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3818151937066928265, guid: fa717c946f3053743a2716b02a81df79, type: 3}
+      propertyPath: inventoryPanel
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818151937066928265, guid: fa717c946f3053743a2716b02a81df79, type: 3}
+      propertyPath: items.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818151937066928265, guid: fa717c946f3053743a2716b02a81df79, type: 3}
+      propertyPath: items.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818151937066928265, guid: fa717c946f3053743a2716b02a81df79, type: 3}
+      propertyPath: items.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818151937066928265, guid: fa717c946f3053743a2716b02a81df79, type: 3}
+      propertyPath: items.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5123386956135923168, guid: fa717c946f3053743a2716b02a81df79, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -445,7 +465,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3818151937066928265, guid: fa717c946f3053743a2716b02a81df79, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3961028122929966661, guid: fa717c946f3053743a2716b02a81df79, type: 3}
     - {fileID: 7671510960569318516, guid: fa717c946f3053743a2716b02a81df79, type: 3}
@@ -680,7 +701,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1089420357}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b084eafb5ed6ea3449221838c636e0f5, type: 3}
+  m_Script: {fileID: 11500000, guid: fb6b012847a912d47b1df43b78fdc555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogSystem: {fileID: 465712589}
