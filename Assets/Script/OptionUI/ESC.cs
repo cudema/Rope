@@ -10,6 +10,8 @@ public class ESC : MonoBehaviour
 
     public void ESCOption()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().SoundPlay("UI");
+
         OptionPanel.SetActive(false);
     }
 }

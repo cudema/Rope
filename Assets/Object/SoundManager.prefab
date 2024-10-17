@@ -136,6 +136,21 @@ MonoBehaviour:
     loop: 0
     mute: 0
     volume: 1
+  - name: UI
+    audioClip: {fileID: 8300000, guid: db01e61589c13e7488c7e33c7f588f3a, type: 3}
+    loop: 0
+    mute: 0
+    volume: 1
+  - name: UnitySurprised
+    audioClip: {fileID: 8300000, guid: 32d01961b3fe83445986bbdceed72510, type: 3}
+    loop: 0
+    mute: 0
+    volume: 1
+  - name: UnityAET
+    audioClip: {fileID: 8300000, guid: e280d84f6922a644ea8fcb70a9aaf545, type: 3}
+    loop: 0
+    mute: 0
+    volume: 1
   BGMGroup:
   - name: GameBGM
     audioClip: {fileID: 8300000, guid: 919ca1c255dbd5c48885a1e1a8b734e7, type: 3}
