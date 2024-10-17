@@ -11,5 +11,7 @@ public class OpenOption : MonoBehaviour
     public void Open()
     {
         optionPanel.SetActive(true);
+
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().SoundPlay("UI");
     }
 }
