@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/Quests/FindingRebar/QuestStealRaber.cs.meta
 guid: a89769ef8e76d714bbcbd7f05d07999c
+========
+guid: b26d4ba1f3ae4c749a2ff1b61a405ebd
+>>>>>>>> 최병현:Assets/Resources/Quests/FindingRebar/GoToConstructSite.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

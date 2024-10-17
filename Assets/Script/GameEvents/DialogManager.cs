@@ -26,32 +26,20 @@ public class DialogManager : MonoBehaviour
 
     private float fadeTime = 0.6f;
 
-    public IEnumerator PlayStartDialog(int dialogIndex, Action onDialogComplete = null, bool startBlackout = false, bool showPhoto = false, Sprite photoSprite = null, bool isNextScene = false)
+    public IEnumerator PlayStartDialog(int dialogIndex, Action onDialogComplete = null, bool startBlackout = false, int BlackoutTiming = -1)
     {
         if (dialogIndex < startDialogSystems.Length)
         {
             yield return new WaitUntil(() => startDialogSystems[dialogIndex].UpdateDialog());
 
             // 암전 기능 시작
-            if (startBlackout)
+            if (startBlackout && BlackoutTiming == 0)
             {
                 StartCoroutine(StartBlackout());
             }
 
-            // 사진 표시 여부 확인
-            if (showPhoto && photoSprite != null)
-            {
-                ShowPhoto(photoSprite);
-            }
-
             // 대화가 끝나면 아래 이벤트 실행
             onDialogComplete?.Invoke();
-
-            // 다음 씬으로 전환 여부 확인
-            if (isNextScene)
-            {
-                StartCoroutine(LoadNextScene());
-            }
         }
         else
         {
@@ -59,19 +47,15 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public IEnumerator PlayEndDialog(int dialogIndex, Action onDialogComplete = null, bool startBlackout = false, bool showPhoto = false, Sprite photoSprite = null, bool isNextScene = false)
+    public IEnumerator PlayEndDialog(int dialogIndex, Action onDialogComplete = null, bool startBlackout = false, int BlackoutTiming = -1, bool isNextScene = false)
     {
         if (dialogIndex < endDialogSystems.Length)
         {
             yield return new WaitUntil(() => endDialogSystems[dialogIndex].UpdateDialog());
 
-            if (showPhoto && photoSprite != null)
-            {
-                ShowPhoto(photoSprite);
-            }
 
             // 암전 기능 시작
-            if (startBlackout)
+            if (startBlackout && BlackoutTiming == 1)
             {
                 StartCoroutine(StartBlackout());
             }
@@ -94,19 +78,12 @@ public class DialogManager : MonoBehaviour
     private IEnumerator StartBlackout()
     {
         textMiddle.gameObject.SetActive(true);
+        blackPanel.SetActive(true);
         yield return StartCoroutine(Fade(0, 1));
         yield return new WaitForSeconds(3);
         yield return StartCoroutine(Fade(1, 0));
         textMiddle.gameObject.SetActive(false);
         blackPanel.SetActive(false);
-        photoImage.gameObject.SetActive(false);
-    }
-
-    private void ShowPhoto(Sprite photoSprite)
-    {
-        blackPanel.SetActive(true);
-        photoImage.gameObject.SetActive(true); // 패널 활성화
-        photoImage.sprite = photoSprite; // 이미지 설정
     }
 
     private IEnumerator LoadNextScene()
@@ -117,7 +94,7 @@ public class DialogManager : MonoBehaviour
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             yield return new WaitForSeconds(1); 
-            yield return SceneManager.LoadSceneAsync(nextSceneIndex); // 다음 씬으로 전환
+            SceneManager.LoadScene(nextSceneIndex); // 다음 씬으로 전환
         }
         else
         {

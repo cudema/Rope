@@ -14,7 +14,9 @@ public class Test : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI textMiddle;
     [SerializeField]
-    private QuestManager questManager;
+    private Image image;
+    [SerializeField]
+    private Sprite imageSprite;
 
 
     private float fadeTime = 0.6f;
@@ -22,12 +24,15 @@ public class Test : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        image.sprite = imageSprite;
     }
 
     private IEnumerator Start()
     {
         // 프롤로그 진행
+        image.gameObject.SetActive(true);
         yield return new WaitUntil(() => dialogSystem.UpdateDialog());
+        image.gameObject.SetActive(false);
 
         textMiddle.gameObject.SetActive(true);
         yield return StartCoroutine(Fade(0, 1));

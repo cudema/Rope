@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Stage3.unity.meta
 guid: 0abb265297e81ad458adbd386406c040
+========
+guid: eea2ee07c3922f64294ddc5bfe9404d4
+>>>>>>>> 최병현:Assets/Scenes/Stage2.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

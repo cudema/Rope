@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/Dialogs/StageOneScript.cs.meta
 guid: b084eafb5ed6ea3449221838c636e0f5
+========
+guid: a89769ef8e76d714bbcbd7f05d07999c
+>>>>>>>> 최병현:Assets/Resources/Quests/FindingRebar/QuestStealRaber.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

@@ -81,11 +81,10 @@ public class QuestManager : MonoBehaviour
         ChangeQuestState(quest.info.id, QuestState.IN_PROGRESS);
 
         bool startBlackout = quest.info.isBlackOut;
-        bool showPhoto = quest.info.isShowPhoto;
-        Sprite photo = quest.info.photoSprite;
-        bool nextScene = quest.info.isMoveNextScene;
+        int BlackoutTiming = quest.info.BlackOutTiming;
+;
 
-        StartCoroutine(dialogManager.PlayStartDialog(quest.info.StartdialogSystemIndex, null, startBlackout, showPhoto, photo, nextScene));
+        StartCoroutine(dialogManager.PlayStartDialog(quest.info.StartdialogSystemIndex, null, startBlackout, BlackoutTiming));
     }
 
     private void AdvanceQuest(string id)
@@ -109,13 +108,12 @@ public class QuestManager : MonoBehaviour
         ChangeQuestState(quest.info.id, QuestState.FINISHED);
 
         bool startBlackout = quest.info.isBlackOut;
-        bool showPhoto = quest.info.isShowPhoto;
-        Sprite photo = quest.info.photoSprite;
         bool nextScene = quest.info.isMoveNextScene;
+        int BlackoutTiming = quest.info.BlackOutTiming;
 
         if (quest.info.isStartDialog == false)
         {
-            StartCoroutine(dialogManager.PlayEndDialog(quest.info.EnddialogSystemIndex, null, startBlackout, showPhoto, photo, nextScene));
+            StartCoroutine(dialogManager.PlayEndDialog(quest.info.EnddialogSystemIndex, null, startBlackout, BlackoutTiming, nextScene));
         } 
     }
 
