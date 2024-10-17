@@ -38,10 +38,12 @@ public class DialogSystem : MonoBehaviour
         {
             Setup();
             isFirst = false;
+            isDialogActive = true;
+            SetNextDialog();  // 첫 번째 대화 시작
+            return false;
         }
         isDialogActive = true;
-
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             if (isTyping == true)
             {
@@ -72,7 +74,10 @@ public class DialogSystem : MonoBehaviour
     {
         currentDialogIndex++;
         currentSpeakerIndex = dialogs[currentSpeakerIndex].speakerIndex;
+
         SetActiveObjects(speakers[currentSpeakerIndex], true);
+        Time.timeScale = 0;
+
         speakers[currentSpeakerIndex].textName.text = dialogs[currentDialogIndex].name;
         StartCoroutine("OnTypingText");
     }
@@ -84,6 +89,7 @@ public class DialogSystem : MonoBehaviour
         speaker.textDialogue.gameObject.SetActive(visible);
 
         speaker.objectArrow.SetActive(false);
+        Time.timeScale = 1;
     }
 
     private IEnumerator OnTypingText()
@@ -95,7 +101,7 @@ public class DialogSystem : MonoBehaviour
         {
             speakers[currentSpeakerIndex].textDialogue.text = dialogs[currentDialogIndex].dialogue.Substring(0, index);
             index++;
-            yield return new WaitForSeconds(typingSpeed);
+            yield return new WaitForSecondsRealtime(typingSpeed);
         }
 
         isTyping = false;

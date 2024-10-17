@@ -2,17 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestThiefComplete : MonoBehaviour
+public class QuestThiefComplete : QuestStep
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private string NPCName;
+
+    private void OnEnable()
     {
-        
+        GameEventsManager.instance.inputEvents.onSubmitPressed += HandleInteraction;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        GameEventsManager.instance.inputEvents.onSubmitPressed -= HandleInteraction;
+    }
+
+    private void Start()
+    {
+        string status = NPCName + "과 대화하기[F]";
+        ChangeState("", status);
+    }
+
+    private void HandleInteraction()
+    {
+        GameObject detectedObject = ObjectDetector.Instance.GetDetectedObject();
+
+        if (detectedObject != null && detectedObject.CompareTag("NPC"))
+        {
+            string status = NPCName + "과 대화했다.";
+            ChangeState("", status);
+            FinishQuestStep(); 
+        }
+    }
+
+
+    protected override void SetQuestStepState(string state)
+    {
     }
 }

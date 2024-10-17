@@ -5,6 +5,8 @@ using TMPro;
 
 public class ObjectDetector : MonoBehaviour
 {
+    public static ObjectDetector Instance { get; private set; }
+
     [SerializeField]
     private TextMeshProUGUI textInteraction;
     [SerializeField]
@@ -12,6 +14,18 @@ public class ObjectDetector : MonoBehaviour
 
     private GameObject detectedObject;
     private int detectedItemID = -1;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;  
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnEnable()
     {
@@ -41,6 +55,7 @@ public class ObjectDetector : MonoBehaviour
         {
             if (textInteraction.enabled == false)
             {
+                detectedObject = other.gameObject;
                 textInteraction.enabled = true;
                 string name = other.name.Split('_')[0];
                 textInteraction.text = $"[F] {name}";
@@ -50,7 +65,7 @@ public class ObjectDetector : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Item") || other.CompareTag("NPC"))
+        if (other.CompareTag("Item"))
         {
             if (textInteraction.enabled == true)
             {
@@ -59,6 +74,20 @@ public class ObjectDetector : MonoBehaviour
                 detectedItemID = -1;
             }
         }
+
+        if(other.CompareTag("NPC"))
+        {
+            if (detectedObject == other.gameObject)
+            {
+                detectedObject = null;
+                textInteraction.enabled = false;
+            }
+        }
+    }
+
+    public GameObject GetDetectedObject()
+    {
+        return detectedObject;
     }
 
     private void HandleSubmit()

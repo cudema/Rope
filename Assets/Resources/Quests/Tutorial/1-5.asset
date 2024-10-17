@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841fd60a11fd3e54bbfb8282e7f22157, type: 3}
+  m_Name: 1-5
+  m_EditorClassIdentifier: 
+  <id>k__BackingField: 1-5
+  displayName: "\uAD34\uB3C4\uC758 \uC644\uC131"
+  questPrerequisites:
+  - {fileID: 11400000, guid: ca2509e0127f7c34c8d67b1e8097da6a, type: 2}
+  questStepPrefabs:
+  - {fileID: 6884980762308896946, guid: cb662fe837993be40a2b09e165473283, type: 3}
+  isStartDialog: 0
+  StartdialogSystemIndex: 4
+  EnddialogSystemIndex: 0
+  isBlackOut: 1
+  isShowPhoto: 1
+  photoSprite: {fileID: 21300000, guid: 8dc7be4f04a926c48ad8e0eef2689b51, type: 3}
+  isMoveNextScene: 1

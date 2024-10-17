@@ -15,5 +15,12 @@ MonoBehaviour:
   <id>k__BackingField: 1-1
   displayName: "\uAD34\uB3C4\uC758 \uAE30\uC220, \uB85C\uD504\uC2A4\uC719"
   questPrerequisites: []
-  questStepPrefabs: []
-  dialogSystemIndex: 0
+  questStepPrefabs:
+  - {fileID: 3973060307527975012, guid: 0b66dfcea85fadb4983212b9b77dbbba, type: 3}
+  isStartDialog: 1
+  StartdialogSystemIndex: 0
+  EnddialogSystemIndex: 0
+  isBlackOut: 0
+  isShowPhoto: 0
+  photoSprite: {fileID: 0}
+  isMoveNextScene: 0
