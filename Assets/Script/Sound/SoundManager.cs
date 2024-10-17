@@ -48,7 +48,7 @@ class Sound
     public void SetMute(bool mute)
     {
 
-        this.mute = mute;
+        this.mute = !mute;
         source.mute = this.mute;
     }
 }
@@ -178,7 +178,7 @@ public class SoundManager : MonoBehaviour
 
     public void MasterMute(bool temp)
     {
-        SoundMute(!temp);
-        BGMMute(!temp);
+        SoundMute(temp);
+        BGMMute(temp);
     }
 }
