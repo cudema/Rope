@@ -39092,6 +39092,18 @@ PrefabInstance:
       propertyPath: swingMinDistance
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 3413502847845189207, guid: daa4f565052cd8e4689f2db497875493, type: 3}
+      propertyPath: ropeMagnification
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413502847845189207, guid: daa4f565052cd8e4689f2db497875493, type: 3}
+      propertyPath: recoverySwingGauge
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913366905068917308, guid: daa4f565052cd8e4689f2db497875493, type: 3}
+      propertyPath: swingGaugeConsumption
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6642934490590313149, guid: daa4f565052cd8e4689f2db497875493, type: 3}
       propertyPath: m_Name
       value: Player
