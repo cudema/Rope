@@ -29,11 +29,8 @@ public class QuestInfo : ScriptableObject
     [Header("암전 기능 사용 여부")]
     public bool isBlackOut;
 
-    [Header("사진 표시 여부")]
-    public bool isShowPhoto;
-
-    [Header("화면에 띄울 사진(없으면 기본 null값)")]
-    public Sprite photoSprite = null;
+    [Header("암전 기능 사용 타이밍")]
+    public int BlackOutTiming = -1;
 
     [Header("씬 이동 기능 사용 여부")]
     public bool isMoveNextScene;

@@ -22,6 +22,5 @@ MonoBehaviour:
   StartdialogSystemIndex: 4
   EnddialogSystemIndex: 0
   isBlackOut: 1
-  isShowPhoto: 1
-  photoSprite: {fileID: 21300000, guid: 8dc7be4f04a926c48ad8e0eef2689b51, type: 3}
+  BlackOutTiming: 1
   isMoveNextScene: 1
