@@ -1025,7 +1025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swingGaugeConsumption: 15
   loop: {fileID: 1919456217514277073}
-  slider: {fileID: 0}
+  slider: {fileID: 2534201261354733227}
   swingVector: {x: 0, y: 10, z: 30}
 --- !u!120 &-1302086408104224146
 LineRenderer:

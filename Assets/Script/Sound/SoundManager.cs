@@ -66,6 +66,22 @@ public class SoundManager : MonoBehaviour
     [SerializeField, Range(0, 1)]
     float BGMVolume;
 
+    static GameObject soundManager;
+
+    private void Awake()
+    {
+        if (soundManager == null)
+        {
+            soundManager = this.gameObject;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+
+        DontDestroyOnLoad(soundManager);
+    }
+
     private void Start()
     {
         for (int i = 0; i < soundGroup.Length; i++)
