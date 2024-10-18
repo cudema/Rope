@@ -17,7 +17,7 @@ MonoBehaviour:
   questPrerequisites:
   - {fileID: 11400000, guid: 35cf9c27c8b0d3541b3cae842c6274f0, type: 2}
   questStepPrefabs:
-  - {fileID: 7352443192890675242, guid: bb81218c94b4cb742bede7863bc87830, type: 3}
+  - {fileID: 8159486381796678260, guid: bb81218c94b4cb742bede7863bc87830, type: 3}
   isStartDialog: 1
   StartdialogSystemIndex: 0
   EnddialogSystemIndex: 0

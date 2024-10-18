@@ -1,10 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-<<<<<<<< HEAD:Assets/Prefabs/Item_book.prefab
---- !u!1 &1063113289043816744
-========
---- !u!1 &7352443192890675242
->>>>>>>> 최병현:Assets/Resources/Quests/FindingRebar/2-1.prefab
+--- !u!1 &1010356817574068993
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,110 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<<< HEAD:Assets/Prefabs/Item_book.prefab
-  - component: {fileID: 2269151698704286369}
-  - component: {fileID: 542748931152001006}
-  - component: {fileID: 697437650004097798}
-  - component: {fileID: 3706036862166408096}
-  - component: {fileID: 7132122699639084700}
+  - component: {fileID: 1229680647991588582}
+  - component: {fileID: 6918400383827403508}
+  - component: {fileID: 9210190501217497260}
+  - component: {fileID: 7640016388087936795}
   m_Layer: 0
-  m_Name: Item_book
-========
-  - component: {fileID: 4690993249823886900}
-  - component: {fileID: 1389562151645010518}
-  - component: {fileID: -9066286092936753877}
-  - component: {fileID: -8662014420766460042}
-  - component: {fileID: 6751529178014124910}
-  m_Layer: 0
-  m_Name: 2-1
->>>>>>>> 최병현:Assets/Resources/Quests/FindingRebar/2-1.prefab
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<<< HEAD:Assets/Prefabs/Item_book.prefab
---- !u!4 &2269151698704286369
-========
---- !u!4 &4690993249823886900
->>>>>>>> 최병현:Assets/Resources/Quests/FindingRebar/2-1.prefab
+--- !u!4 &1229680647991588582
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Assets/Prefabs/Item_book.prefab
-  m_GameObject: {fileID: 1063113289043816744}
+  m_GameObject: {fileID: 1010356817574068993}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 500.35837, y: 2.9167075, z: 731.7429}
-========
-  m_GameObject: {fileID: 7352443192890675242}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 599.18, y: 2, z: 1799.9}
->>>>>>>> 최병현:Assets/Resources/Quests/FindingRebar/2-1.prefab
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 954679422009997512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<<< HEAD:Assets/Prefabs/Item_book.prefab
---- !u!33 &542748931152001006
+--- !u!33 &6918400383827403508
 MeshFilter:
-========
---- !u!114 &1389562151645010518
-MonoBehaviour:
->>>>>>>> 최병현:Assets/Resources/Quests/FindingRebar/2-1.prefab
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Assets/Prefabs/Item_book.prefab
-  m_GameObject: {fileID: 1063113289043816744}
+  m_GameObject: {fileID: 1010356817574068993}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &697437650004097798
-========
-  m_GameObject: {fileID: 7352443192890675242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b26d4ba1f3ae4c749a2ff1b61a405ebd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visitPlace: "\uACF5\uC0AC\uC7A5"
---- !u!65 &-9066286092936753877
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7352443192890675242}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &-8662014420766460042
->>>>>>>> 최병현:Assets/Resources/Quests/FindingRebar/2-1.prefab
+--- !u!23 &9210190501217497260
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Assets/Prefabs/Item_book.prefab
-  m_GameObject: {fileID: 1063113289043816744}
-========
-  m_GameObject: {fileID: 7352443192890675242}
->>>>>>>> 최병현:Assets/Resources/Quests/FindingRebar/2-1.prefab
+  m_GameObject: {fileID: 1010356817574068993}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -151,19 +84,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
-<<<<<<<< HEAD:Assets/Prefabs/Item_book.prefab
---- !u!65 &3706036862166408096
+--- !u!65 &7640016388087936795
 BoxCollider:
-========
---- !u!33 &6751529178014124910
-MeshFilter:
->>>>>>>> 최병현:Assets/Resources/Quests/FindingRebar/2-1.prefab
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Assets/Prefabs/Item_book.prefab
-  m_GameObject: {fileID: 1063113289043816744}
+  m_GameObject: {fileID: 1010356817574068993}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -178,21 +105,49 @@ MeshFilter:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7132122699639084700
+--- !u!1 &8159486381796678260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 954679422009997512}
+  - component: {fileID: -4760286261374136534}
+  m_Layer: 0
+  m_Name: 2-1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &954679422009997512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8159486381796678260}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 592.59, y: 0.67, z: 1801.83}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1229680647991588582}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4760286261374136534
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063113289043816744}
+  m_GameObject: {fileID: 8159486381796678260}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53babc0952c0f794e9ca97ef07bbe81f, type: 3}
+  m_Script: {fileID: 11500000, guid: b26d4ba1f3ae4c749a2ff1b61a405ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  count: 0
-========
-  m_GameObject: {fileID: 7352443192890675242}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
->>>>>>>> 최병현:Assets/Resources/Quests/FindingRebar/2-1.prefab
+  visitPlace: "\uACF5\uC0AC\uC7A5"
