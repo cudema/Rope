@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <id>k__BackingField: 3-1
   displayName: "\uACF5\uC0AC\uC7A5\uC73C\uB85C(2)"
-  questPrerequisites:
-  - {fileID: 11400000, guid: 9878589bfd4f00b4d9ced2429599d8eb, type: 2}
+  questPrerequisites: []
   questStepPrefabs:
   - {fileID: 2136549235445083691, guid: 974366531d6acd941b730a69ac8091ed, type: 3}
   isStartDialog: 1
